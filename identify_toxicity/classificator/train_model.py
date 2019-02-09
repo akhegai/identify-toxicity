@@ -12,7 +12,8 @@ def get_tokenizer():
 
 def train_model(data):
     x, y = get_data_and_targets(data)
-    x_trainsformed = get_tokenizer().fit_transform(x)
+    tokenizer = get_tokenizer()
+    x_transformed = tokenizer.fit_transform(x)
     classifier = OneVsRestClassifier(NbSvmClassifier(C=4, dual=True, n_jobs=-1))
-    classifier.fit(x_trainsformed, y)
-    return classifier
+    classifier.fit(x_transformed, y)
+    return classifier, tokenizer
