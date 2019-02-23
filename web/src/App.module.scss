@@ -1,0 +1,38 @@
+$positive: #28a745;
+$negative: #dc3545;
+$initial: #f1f1f1;
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $initial;
+  transition: background-color 0.5s ease-in-out;
+  .wrapper {
+    .form {
+      display: flex;
+      justify-content: center;
+      & form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+    .table-wrapper {
+      margin-top: 50px;
+      background-color: $initial;
+    }
+  }
+
+  &.positive {
+    background-color: #28a745;
+  }
+
+  &.negative {
+    background-color: #dc3545;
+  }
+}

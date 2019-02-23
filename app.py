@@ -1,10 +1,10 @@
 from flask import Flask, request, render_template, send_from_directory, make_response, jsonify
-
+from flask_cors import CORS
 from identify_toxicity.classificator.model import Classifier
 from identify_toxicity.constants.paths import TFIDF_BOW_PATH, TRAINED_NBSVM_PATH
 
 app = Flask(__name__)
-
+CORS(app)
 classifier = Classifier(TRAINED_NBSVM_PATH, TFIDF_BOW_PATH)
 
 @app.route('/api/predict', methods=['POST'])
